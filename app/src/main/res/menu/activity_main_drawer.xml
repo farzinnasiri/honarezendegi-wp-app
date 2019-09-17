@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="">
+        <item
+            android:id="@+id/nav_website"
+            android:icon="@drawable/ic_our_website"
+            android:title="ورود به سایت هنر زندگی"/>
+        <item
+            android:id="@+id/nav_about_us"
+            android:icon="@drawable/ic_about_us"
+            android:title="درباره ما"/>
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="به دوستان خود معرفی کنید"/>
+    </item>
+
+    <item android:title="تماس با ما">
+        <menu>
+            <item
+                android:id="@+id/nav_send_email"
+                android:icon="@drawable/ic_email"
+                android:title="ایمیل"/>
+            <item
+                android:id="@+id/nav_web_contact_form"
+                android:icon="@drawable/ic_web2"
+                android:title="سایت"/>
+            <item
+                android:id="@+id/nav_support"
+                android:icon="@drawable/ic_forum"
+                android:title="مشاوره"/>
+        </menu>
+    </item>
+
+    <item android:title="ما را دنبال کنید">
+        <menu>
+            <item
+                android:id="@+id/nav_instagram"
+                android:icon="@drawable/ic_instagram"
+                android:title="اینستاگرام"/>
+
+            <item
+                android:id="@+id/nav_telegram"
+                android:icon="@drawable/ic_telegram"
+                android:title="تلگرام"/>
+
+        </menu>
+    </item>
+
+</menu>

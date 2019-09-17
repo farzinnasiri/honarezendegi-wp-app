@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:id="@+id/itemCrdPostHolder"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="2dp"
+    app:cardElevation="1dp"
+    app:cardCornerRadius="10dp"
+    >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgAuthorAvatarPic"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/profile"/>
+
+        <TextView
+            android:id="@+id/txtAuthorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgAuthorAvatarPic"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_toLeftOf="@+id/imgAuthorAvatarPic"
+            android:maxLines="1"
+            android:text="محمد میگه :"
+            android:textColor="@color/colorAccent"
+            android:textDirection="anyRtl"/>
+
+        <TextView
+            android:id="@+id/txtAuthorCommentDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/txtAuthorName"
+            android:layout_marginRight="8dp"
+            android:layout_toLeftOf="@+id/txtAuthorName"
+            android:maxLines="1"
+            android:text="2 دقیقه پیش"
+            android:textSize="12sp"/>
+
+        <io.github.meness.Library.HtmlTextView.HtmlTextView
+            android:id="@+id/txtAuthorComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtAuthorName"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_toLeftOf="@+id/imgAuthorAvatarPic"
+            android:lineSpacingExtra="2dp"
+            android:text="@string/text1"
+            android:textSize="12sp"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

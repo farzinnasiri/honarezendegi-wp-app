@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#007eff</color>
+    <color name="colorPrimaryDark">#014EA0</color>
+    <color name="colorAccent">#ff9000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="whiteTrans">#b1ffffff</color>
+    <color name="ProgressBarLoadingColor">#FFD403</color>
+    <color name="Black">#1b1b1b</color>
+
+
+    <color name="normalMode">@color/white</color>
+    <color name="selectMode">#370ad2ad</color>
+
+
+    <color name="mdtp_accent_color">@color/colorPrimary</color>
+    <color name="mdtp_accent_color_dark">@color/colorPrimaryDark</color>
+
+    <color name="swipePrograssBarColor">@color/colorAccent</color>
+</resources>
