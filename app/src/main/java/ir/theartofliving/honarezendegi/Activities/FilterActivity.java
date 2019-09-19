@@ -205,7 +205,7 @@ public class FilterActivity extends AppCompatActivity implements DatePickerDialo
     private String generateDateFilter()
     {
         String filterText = "";
-        if (dateIsSelected == true)
+        if (dateIsSelected)
             filterText += "after=" + dateFrom + "&&before=" + dateTo;
         return filterText;
     }

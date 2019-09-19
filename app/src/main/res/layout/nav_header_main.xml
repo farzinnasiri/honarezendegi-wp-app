@@ -24,40 +24,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:textDirection="rtl"
-        android:paddingTop="@dimen/nav_header_vertical_spacing">
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:textDirection="rtl">
 
         <TextView
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="right"
             android:text="هنر زندگی"
             android:textColor="@color/white" />
 
 
         <TextView
-            android:layout_weight="1"
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:gravity="left"
             android:text="info@honarzendegi.com"
             android:textColor="@color/white" />
 
 
     </LinearLayout>
-
-
-    <Switch
-        android:id="@+id/blue_filter_switch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="left"
-        android:text="فیلتر آبی"
-        android:textColor="#FFFFFF"
-        android:textColorLink="#FF9000" />
 
 
 

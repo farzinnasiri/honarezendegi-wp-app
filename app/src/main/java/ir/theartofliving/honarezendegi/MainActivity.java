@@ -1,23 +1,17 @@
 package ir.theartofliving.honarezendegi;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
-h
+
 import androidx.annotation.RequiresApi;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.navigation.NavigationView;
-import com.mcsoft.mcnightmode.NightService;
 
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -28,7 +22,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +42,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TabLayout tabLayout;
     Toolbar toolbar;
     TextView txtToolbarTitle;
-    Switch blueFilterSwitch;
 
     BlogFragment blogFragment = new BlogFragment();
     HomeFragment homeFragment = new HomeFragment();
@@ -64,13 +56,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (!Settings.canDrawOverlays(this)) {
-                Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
-                        Uri.parse("package:" + getPackageName()));
-                startActivity(myIntent);
-            }
-        }
+
         tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         txtToolbarTitle = (TextView) findViewById(R.id.txtToolbarTitle);
@@ -123,61 +109,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Utility.setNavigationItemTypeface(navigationView.getMenu(), G.face);
 
 
-
-
-
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        blueFilterSetUp();
+//        blueFilterSetUp();
     }
 
-    private void blueFilterSetUp() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        blueFilterSwitch = (Switch) navigationView.getHeaderView(0)
-                .findViewById(R.id.blue_filter_switch);
-
-        SharedPreferences sharedPrefs = getSharedPreferences(
-                "ir.theartofliving.honarezendegi", MODE_PRIVATE);
-
-        final boolean[] checked = {sharedPrefs.getBoolean("blueFilter", false)};
-
-        blueFilterSwitch.setChecked(checked[0]);
-
-        blueFilterSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               checked[0] = isChecked;
-               applyFilter(checked[0]);
-
-            }
-        });
-        applyFilter(checked[0]);
-    }
-
-    private void applyFilter(boolean b) {
-        SharedPreferences.Editor editor = getSharedPreferences(
-                "ir.theartofliving.honarezendegi"
-                , MODE_PRIVATE).edit();
-        if (b) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                startForegroundService(new Intent(MainActivity.this,
-                        NightService.class));
-            } else {
-                startService(new Intent(MainActivity.this,
-                        NightService.class));
-            }
-
-            editor.putBoolean("blueFilter", true);
-
-        } else {
-            stopService(new Intent(MainActivity.this, NightService.class));
-            editor.putBoolean("blueFilter", false);
-        }
-        editor.apply();
-    }
+//    private void blueFilterSetUp() {
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        blueFilterSwitch = (Switch) navigationView.getHeaderView(0)
+//                .findViewById(R.id.drak_mode_swithc);
+//
+//        SharedPreferences sharedPrefs = getSharedPreferences(
+//                "ir.theartofliving.honarezendegi", MODE_PRIVATE);
+//
+//        final boolean[] checked = {sharedPrefs.getBoolean("blueFilter", false)};
+//
+//        blueFilterSwitch.setChecked(checked[0]);
+//
+//        blueFilterSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                checked[0] = isChecked;
+//                applyFilter(checked[0]);
+//
+//            }
+//        });
+//        applyFilter(checked[0]);
+//    }
+//
+//    private void applyFilter(boolean b) {
+//        SharedPreferences.Editor editor = getSharedPreferences(
+//                "ir.theartofliving.honarezendegi"
+//                , MODE_PRIVATE).edit();
+//        if (b) {
+//
+//
+//            editor.putBoolean("blueFilter", true);
+//
+//        } else {
+//            editor.putBoolean("blueFilter", false);
+//        }
+//        editor.apply();
+//    }
 
     private void setToolbarTitle(int index) {
         if (index == 0)
@@ -273,13 +249,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        stopService(new Intent(MainActivity.this, NightService.class));
-        android.os.Process.killProcess(android.os.Process.myPid());
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        stopService(new Intent(MainActivity.this, NightService.class));
-    }
+
 }
